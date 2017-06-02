@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.75% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>15/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88.89% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>16/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export default function humanDateRange(
+{startDate, 
+ endDate, 
+ showWeekDays=false,
+ month='short', 
+ weekday='short'
+}=<span class="branch-0 cbranch-no" title="branch not covered" >{})</span>{
+// Make sure both startDate and endDate are dates
+  if (!isDate(startDate) || !isDate(endDate)) {
+      return null;
+  }
+  const sYear = startDate.getFullYear();
+  const sDate = startDate.getDate();
+  const sWeekday = showWeekDays ? startDate.toLocaleString('en-US', {weekday}) + ' ' : '';
+  const sMonth = startDate.toLocaleString('en-US', {month});
+  const eYear = endDate.getFullYear();
+  const eDate = endDate.getDate();
+  const eWeekday = showWeekDays ? endDate.toLocaleString('en-US', {weekday}) + ' ' : '';
+  const eMonth = endDate.toLocaleString('en-US', {month});
+&nbsp;
+// Check if month and year are the same
+// The block in back ticks ` ` is called a template literal, which was introduced in
+// ES2015. They support expressions (indicated by a dollar sign and curly braces), 
+//which will be evaluated at runtime.
+  if (sYear === eYear &amp;&amp; sMonth === eMonth) {
+      return `${sWeekday}${sMonth} ${sDate}-${eWeekday}${eDate} ${eYear}`;
+  }
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (sYear === eYear) {
+<span class="cstat-no" title="statement not covered" >      return `${sWeekday}${sMonth} ${sDate}-${eWeekday}${eMonth} ${eDate} ${eYear}`;</span>
+  }
+  return `${sWeekday}${sMonth} ${sDate} ${sYear}-${eWeekday}${eMonth} ${eDate} ${eYear}`;
+}
+  function isDate(date) {  
+      return Object.prototype.toString.call(date) === '[object Date]';
+  }</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 02 2017 12:12:41 GMT-0400 (Eastern Daylight Time)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>
